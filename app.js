@@ -17,7 +17,7 @@ const numPasos = num => {
         cont += 1;
       }
       else{
-        num = num - 1
+        num = num - 1;
         cont += 1;
       }
     }
@@ -39,26 +39,26 @@ const numPasos = num => {
   contrasena("esta es una prueba"); // "3st43sun4pru3b4"
   contrasena(""); // "" */
   const contrasena = str => {
-    let newStr = str
-    newStr = newStr.toLowerCase().replaceAll(' ', '').split('');
-  
-    for(let i = 0; i < newStr.length; i++){
-  
-      if(newStr[i] === 'a'){
-        newStr[i] = '4';
-      }
-      if(newStr[i] === 'e'){
-        newStr[i] = '3';
-      }
-      if(newStr[i] === 'i'){
-        newStr[i] = '1';
-      }
-      if(newStr[i] === 'o'){
-        newStr[i] = '0';
-      }
-    }
-  
-    return newStr.join('');
+    str = str.toLowerCase().replaceAll(' ', '').split('');
+
+  const funct = str.map(item => {
+    if(item === 'a'){
+      item = '4';
+    } 
+    if(item === 'e'){
+      item = '3';
+    }     
+    if(item === 'i'){
+      item = '1';
+    } 
+    if(item === 'o'){
+      item = '0';
+    } 
+    return item;
+  })
+
+  return funct.join('');
+
   }
   
   console.log(contrasena("Esta es uNa prueba"));
@@ -98,7 +98,7 @@ likes(25222444); // "25M"*/
   }
   
   console.log(likes(983));
-  console.log(likes(120800))
+  console.log(likes(120800));
 
   /* Ejercicio 4
 Escribir una función llamada generarCodigo que reciba un string y retorne un nuevo string con las dos primeras letras de cada palabra.
@@ -107,7 +107,22 @@ console.log(generarCodigo("hola mundo")) // "homu"
 console.log(generarCodigo("juan david berbeo")) // "judabe"
 console.log(generarCodigo("")) // "" */
 
-const generarCodigo = str =>{
-  
+const generarCodigo = str => {
+
+  str = str.split(' ');
+  const arrayStr = [];
+
+  for(let i = 0; i < str.length; i++){
+    for(let j = 0; j< str[i].length; j++){
+      if(j <= 1){
+        arrayStr.push(str[i][j]);
+      }
+    }
+  }
+
+  return arrayStr.join('');
 }
+
+console.log(generarCodigo("juan david berbeo"));
+
   
